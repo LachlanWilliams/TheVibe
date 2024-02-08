@@ -29,6 +29,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="likes"
+        options={{
+          title: '',
+          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
+        }}
+      />
     </Tabs>
   );
 }
