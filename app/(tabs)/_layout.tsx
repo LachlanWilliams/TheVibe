@@ -13,7 +13,7 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'black',
+        tabBarActiveTintColor: 'red',
       }}>
       <Tabs.Screen
         name="index"
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     marginRight: 15,
   },
   tabBarIcon: {
-    marginBottom: -3,
+    marginBottom: -20,
   },
 });
