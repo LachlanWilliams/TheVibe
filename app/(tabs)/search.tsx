@@ -1,11 +1,13 @@
-import { YStack, H2, Theme } from 'tamagui';
+import { YStack, Theme } from 'tamagui';
+
+import CatagoryList from '~/components/catagory-list';
+import SearchBar from '~/components/search-bar';
 
 export default function TabTwoScreen() {
   return (
     <Theme name="light">
-      <YStack flex={1} alignItems="center" justifyContent="center">
-        <H2>Search</H2>
-      </YStack>
+      <SearchBar />
+      <CatagoryList />
     </Theme>
   );
 }
