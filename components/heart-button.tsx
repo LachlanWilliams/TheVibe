@@ -4,8 +4,12 @@ import { StyleSheet, Pressable } from 'react-native';
 import { Button } from 'tamagui';
 
 const heartButton = () => {
+  const handlePress = () => {
+    console.log('Button pressed');
+  };
+
   return (
-    <Pressable style={styles.card}>
+    <Pressable style={styles.card} onPress={handlePress}>
       <AntDesign name="hearto" size={24} color="red" />
     </Pressable>
   );
