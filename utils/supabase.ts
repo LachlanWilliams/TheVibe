@@ -5,6 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 export interface Product {
   name: string;
   link: string;
+  price: number;
 }
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL!;
@@ -43,6 +44,6 @@ export async function fetchProducts(): Promise<Product[]> {
 fetchProducts().then((products) => {
   console.log('Products:');
   products.forEach((product) => {
-    console.log(`Name: ${product.name}, Link: ${product.link}`);
+    console.log(`Name: ${product.name}, Link: ${product.link}, Price: ${product.price}`);
   });
 });

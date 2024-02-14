@@ -5,12 +5,20 @@ import { Card, H2, Paragraph } from 'tamagui';
 
 import HeartButton from './heart-button';
 
-export default function customProductCard({ imageLink, name }: { imageLink: any; name: any }) {
+export default function customProductCard({
+  imageLink,
+  name,
+  price,
+}: {
+  imageLink: string;
+  name: string;
+  price: number;
+}) {
   return (
     <Card elevate size="$4" height={500}>
       <Card.Header padded>
         <H2>{name}</H2>
-        <Paragraph theme="alt2">$49.90</Paragraph>
+        <Paragraph theme="alt2">${price}</Paragraph>
       </Card.Header>
       <Card.Footer>
         <HeartButton />

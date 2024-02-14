@@ -27,7 +27,12 @@ const ScrollProducts = () => {
     <ScrollView>
       <YStack>
         {products.map((product, index) => (
-          <CustomProductCard key={index} name={product.name} imageLink={product.link} />
+          <CustomProductCard
+            key={index}
+            name={product.name}
+            imageLink={product.link}
+            price={product.price}
+          />
         ))}
       </YStack>
     </ScrollView>
