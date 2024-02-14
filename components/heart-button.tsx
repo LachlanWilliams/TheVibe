@@ -1,7 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Pressable } from 'react-native';
-import { Button } from 'tamagui';
 
 const heartButton = () => {
   const handlePress = () => {

@@ -1,18 +1,20 @@
 import { Image } from 'expo-image';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Card, H2, Paragraph } from 'tamagui';
-
-import HeartButton from './heart-button';
+import { Card, H2, Button } from 'tamagui';
 
 export default function loginCard() {
+  const handlePress = () => {
+    console.log('Sign in Pressed');
+  };
+
   return (
     <Card elevate size="$4" height={500}>
       <Card.Header padded>
         <H2>The Vibe</H2>
       </Card.Header>
       <Card.Footer>
-        <HeartButton />
+        <Button onPress={handlePress}>Sign in</Button>
       </Card.Footer>
       <Card.Background>
         <Image
