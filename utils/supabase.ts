@@ -2,7 +2,7 @@ import 'react-native-url-polyfill/auto';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js';
 
-interface Product {
+export interface Product {
   name: string;
   link: string;
 }
@@ -20,7 +20,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 });
 
 // Function to retrieve data from the 'products' table
-async function fetchProducts(): Promise<Product[]> {
+export async function fetchProducts(): Promise<Product[]> {
   try {
     const { data, error } = await supabase.from('Products').select();
 

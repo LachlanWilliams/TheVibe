@@ -1,11 +1,13 @@
 import { YStack, ScrollView, Theme } from 'tamagui';
 
 import CustomProductCard from '~/components/custom-product-card';
+import ScrollProducts from '~/components/scroll-products';
 
 export default function TabOneScreen() {
   return (
     <Theme name="light">
-      <ScrollView>
+      <ScrollProducts />
+      {/* <ScrollView>
         <YStack>
           <CustomProductCard
             name="shirt 1"
@@ -20,7 +22,7 @@ export default function TabOneScreen() {
             imageLink="https://m.media-amazon.com/images/I/71wAR5-lggL._AC_UY1100_.jpg"
           />
         </YStack>
-      </ScrollView>
+      </ScrollView> */}
     </Theme>
   );
 }
