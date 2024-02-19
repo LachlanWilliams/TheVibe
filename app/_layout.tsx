@@ -29,7 +29,7 @@ export default function RootLayout() {
   return (
     <TamaguiProvider config={config}>
       <Stack>
-        <Stack.Screen name="login" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="index" />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
     </TamaguiProvider>

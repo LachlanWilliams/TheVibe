@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Card, H2, Button } from 'tamagui';
+import { Card, H2, Button, Input, YStack } from 'tamagui';
 
 export default function loginCard() {
   const handlePress = () => {
@@ -14,7 +14,10 @@ export default function loginCard() {
         <H2>The Vibe</H2>
       </Card.Header>
       <Card.Footer>
-        <Button onPress={handlePress}>Sign in</Button>
+        <YStack>
+          <Input>User Name</Input>
+          <Button onPress={handlePress}>Sign in</Button>
+        </YStack>
       </Card.Footer>
       <Card.Background>
         <Image
