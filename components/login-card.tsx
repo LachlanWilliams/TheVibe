@@ -2,20 +2,23 @@ import { Image } from 'expo-image';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Card, H2, Button, Input, YStack } from 'tamagui';
+import { router } from 'expo-router';
 
 export default function loginCard() {
   const handlePress = () => {
+    router.navigate('/(tabs)');
     console.log('Sign in Pressed');
   };
 
   return (
-    <Card elevate size="$4" height={500}>
+    <Card elevate size="$4" height={700} width={350}>
       <Card.Header padded>
         <H2>The Vibe</H2>
       </Card.Header>
       <Card.Footer>
         <YStack>
           <Input>User Name</Input>
+          <Input>Password</Input>
           <Button onPress={handlePress}>Sign in</Button>
         </YStack>
       </Card.Footer>

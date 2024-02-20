@@ -4,7 +4,7 @@ import { YStack, Paragraph, Separator, Theme } from 'tamagui';
 
 import LoginCard from '~/components/login-card';
 
-export default function ModalScreen() {
+export default function login() {
   return (
     <Theme name="light">
       <YStack flex={1} alignItems="center" justifyContent="center">
