@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Modal, StyleSheet, SafeAreaView } from 'react-native';
+import { Image, Modal, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import { Card, H2, Button, Input, YStack, View, Text } from 'tamagui';
 import { router } from 'expo-router'; // Assuming you have imported the router instance
 
@@ -9,6 +9,8 @@ export default function LoginCard() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [forgotEmail, setForgotEmail] = useState('');
+
   const handleSignIn = () => {
     console.log('Username:', username);
     console.log('Password:', password);
@@ -16,11 +18,22 @@ export default function LoginCard() {
     router.navigate('/(tabs)');
   };
 
+  const handleForgotPassword = () => {
+    console.log(forgotEmail);
+    setModalOpen(false);
+  };
+
   return (
     <>
       <Modal visible={modalOpen}>
         <SafeAreaView>
-          <Text>Hello</Text>
+          <Text>Forgot Password?</Text>
+          <Input
+            placeholder="Email"
+            value={forgotEmail}
+            onChangeText={(text) => setForgotEmail(text)}
+          />
+          <Button onPress={handleForgotPassword}>Reset Password</Button>
         </SafeAreaView>
       </Modal>
       <Card elevate size="$4" height={700} width={350}>
@@ -41,6 +54,9 @@ export default function LoginCard() {
               secureTextEntry={true} // For password input
             />
             <Button onPress={handleSignIn}>Sign in</Button>
+            <Pressable onPress={() => setModalOpen(true)}>
+              <Text>Forgot Password</Text>
+            </Pressable>
           </YStack>
         </Card.Footer>
         <Card.Background>
