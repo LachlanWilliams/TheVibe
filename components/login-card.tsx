@@ -1,13 +1,17 @@
-import { Image } from 'expo-image';
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { Image, StyleSheet } from 'react-native';
 import { Card, H2, Button, Input, YStack } from 'tamagui';
-import { router } from 'expo-router';
+import { router } from 'expo-router'; // Assuming you have imported the router instance
 
-export default function loginCard() {
-  const handlePress = () => {
+export default function LoginCard() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignIn = () => {
+    console.log('Username:', username);
+    console.log('Password:', password);
+    // Assuming router.navigate is available in your component
     router.navigate('/(tabs)');
-    console.log('Sign in Pressed');
   };
 
   return (
@@ -17,15 +21,26 @@ export default function loginCard() {
       </Card.Header>
       <Card.Footer>
         <YStack>
-          <Input>User Name</Input>
-          <Input>Password</Input>
-          <Button onPress={handlePress}>Sign in</Button>
+          <Input
+            placeholder="User Name"
+            value={username}
+            onChangeText={(text) => setUsername(text)}
+          />
+          <Input
+            placeholder="Password"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
+            secureTextEntry={true} // For password input
+          />
+          <Button onPress={handleSignIn}>Sign in</Button>
         </YStack>
       </Card.Footer>
       <Card.Background>
         <Image
           style={styles.image}
-          source="https://i.pinimg.com/originals/db/69/09/db69093d2a2f46b53e88f4e3f54f0691.jpg"
+          source={{
+            uri: 'https://i.pinimg.com/originals/db/69/09/db69093d2a2f46b53e88f4e3f54f0691.jpg',
+          }}
         />
       </Card.Background>
     </Card>
@@ -33,12 +48,6 @@ export default function loginCard() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   image: {
     flex: 1,
     width: '100%',
