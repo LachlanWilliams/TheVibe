@@ -1,7 +1,7 @@
+import { router } from 'expo-router'; // Assuming you have imported the router instance
 import React, { useState } from 'react';
 import { Image, Modal, StyleSheet, SafeAreaView, Pressable } from 'react-native';
-import { Card, H2, Button, Input, YStack, View, Text } from 'tamagui';
-import { router } from 'expo-router'; // Assuming you have imported the router instance
+import { Card, H2, Button, Input, YStack, Text } from 'tamagui';
 
 export default function LoginCard() {
   const [modalOpen, setModalOpen] = useState(false);
