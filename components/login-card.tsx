@@ -2,6 +2,7 @@ import { router } from 'expo-router'; // Assuming you have imported the router i
 import React, { useState } from 'react';
 import { Image, Modal, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import { Card, H2, Button, Input, YStack, Text } from 'tamagui';
+import { supabase } from '~/utils/supabase';
 
 export default function LoginCard() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -18,9 +19,21 @@ export default function LoginCard() {
     router.navigate('/(tabs)');
   };
 
-  const handleForgotPassword = () => {
+  const handleForgotPassword = async () => {
     console.log(forgotEmail);
+    try {
+      let { data, error } = await supabase.auth.resetPasswordForEmail(forgotEmail);
+      console.log('forgotEmail data: ', data);
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      console.log('forgotEmail error: ', error);
+      alert('Email is incorrect');
+      return;
+    }
     setModalOpen(false);
+    alert('Email has be sent to: ' + forgotEmail);
   };
 
   return (
