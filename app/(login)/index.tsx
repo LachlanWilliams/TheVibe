@@ -2,7 +2,7 @@ import { router } from 'expo-router'; // Assuming you have imported the router i
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Platform, Image, Modal, StyleSheet, SafeAreaView, Pressable } from 'react-native';
-import { YStack, Paragraph, Separator, Theme, Card, H2, Button, Input, Text } from 'tamagui';
+import { YStack, Paragraph, Separator, Theme, Card, H3, H2, Button, Input, Text } from 'tamagui';
 
 export default function Login() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,6 +23,9 @@ export default function Login() {
     router.navigate('/forgot');
   };
 
+  const handleSignUp = () => {
+    router.navigate('/signup');
+  };
   return (
     <Theme name="light">
       <YStack flex={1} alignItems="center" justifyContent="center">
@@ -33,6 +36,10 @@ export default function Login() {
           </Card.Header>
           <Card.Footer>
             <YStack>
+              <H3>Sign In</H3>
+              <Pressable onPress={handleSignUp}>
+                <Text> Create an Account</Text>
+              </Pressable>
               <Input
                 placeholder="Username"
                 value={username}
