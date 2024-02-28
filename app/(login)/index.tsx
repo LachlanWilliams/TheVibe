@@ -4,11 +4,7 @@ import React, { useState } from 'react';
 import { Platform, Image, Modal, StyleSheet, SafeAreaView, Pressable } from 'react-native';
 import { YStack, Paragraph, Separator, Theme, Card, H2, Button, Input, Text } from 'tamagui';
 
-import { supabase } from '../../utils/supabase';
-
-import LoginCard from '~/components/login-card';
-
-export default function login() {
+export default function Login() {
   const [modalOpen, setModalOpen] = useState(false);
 
   const [username, setUsername] = useState('');
