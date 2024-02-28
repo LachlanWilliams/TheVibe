@@ -54,6 +54,20 @@ export async function findUser(email: string) {
   }
 }
 
+export async function resetPassword(email: string) {
+  try {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+    if (error) {
+      throw error;
+    }
+    console.log('resetPassword data: ', data);
+    return true;
+  } catch (error) {
+    console.log('resetPassword error: ', error);
+    return false;
+  }
+}
+
 // Example usage
 fetchProducts().then((products) => {
   console.log('Products:');
