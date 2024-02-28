@@ -68,6 +68,18 @@ export async function resetPassword(email: string) {
   }
 }
 
+export async function createUser(Uemail: string, Upassword: string) {
+  try {
+    const { data, error } = await supabase.auth.signUp({ email: Uemail, password: Upassword });
+    if (error) {
+      throw error;
+    }
+    console.log('createUser data: ', data);
+  } catch (error) {
+    console.log('createUser error: ', error);
+  }
+}
+
 // Example usage
 fetchProducts().then((products) => {
   console.log('Products:');
