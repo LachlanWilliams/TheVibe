@@ -40,6 +40,20 @@ export async function fetchProducts(): Promise<Product[]> {
   }
 }
 
+export async function findUser(email: string) {
+  try {
+    const { data, error } = await supabase.from('Users').select().eq('email', email);
+    if (error) {
+      throw error;
+    }
+    console.log('findUser: ', data);
+    return data.length > 0;
+  } catch (error) {
+    console.error('Error checking user existence:', error);
+    return false;
+  }
+}
+
 // Example usage
 fetchProducts().then((products) => {
   console.log('Products:');
